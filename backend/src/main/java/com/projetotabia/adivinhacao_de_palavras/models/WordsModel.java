@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 
 // Model class is a model that represents the word entity in the database
@@ -16,8 +15,8 @@ public class WordsModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private UUID idWord;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idWord;
     private String word;
     private String description;
 

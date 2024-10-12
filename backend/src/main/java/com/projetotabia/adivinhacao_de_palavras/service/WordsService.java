@@ -7,10 +7,10 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.Long;
 import java.util.List;
 import java.util.Optional;
 import java.util.Random;
-import java.util.UUID;
 
 // Service class contains all the business logic, such as saving, updating, searching and deleting words,
 // interacting directly with the repository
@@ -31,7 +31,7 @@ public class WordsService {
         return wordsRepository.findAll();
     }
 
-    public Optional<WordsModel> getOneWord(UUID id){
+    public Optional<WordsModel> getOneWord(Long id){
         return wordsRepository.findById(id);
     }
 
@@ -42,6 +42,10 @@ public class WordsService {
 
     public void deleteWord(WordsModel wordModel){
         wordsRepository.delete(wordModel);
+    }
+
+    public WordsModel randonWord(){
+        pass
     }
 
 }

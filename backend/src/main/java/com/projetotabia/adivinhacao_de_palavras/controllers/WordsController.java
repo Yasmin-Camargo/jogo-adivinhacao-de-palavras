@@ -9,12 +9,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.Long;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 // Controller only handles HTTP requests
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class WordsController {
 
@@ -32,7 +33,7 @@ public class WordsController {
     }
 
     @GetMapping("/words/{id}")
-    public ResponseEntity<Object> getOneWord(@PathVariable(value="id") UUID id){
+    public ResponseEntity<Object> getOneWord(@PathVariable(value="id") Long id){
         Optional<WordsModel> wordO = wordsService.getOneWord(id);
         if(wordO.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Word not found");
@@ -41,7 +42,7 @@ public class WordsController {
     }
 
     @PutMapping("/words/{id}")
-    public ResponseEntity<Object> updateWord(@PathVariable(value="id") UUID id, @RequestBody @Valid WordsRecordDto wordsRecordDto){
+    public ResponseEntity<Object> updateWord(@PathVariable(value="id") Long id, @RequestBody @Valid WordsRecordDto wordsRecordDto){
         Optional<WordsModel> wordO = wordsService.getOneWord(id);
         if(wordO.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Word not found");
@@ -52,7 +53,7 @@ public class WordsController {
     }
 
     @DeleteMapping("/words/{id}")
-    public ResponseEntity<Object> deleteWord(@PathVariable(value="id") UUID id){
+    public ResponseEntity<Object> deleteWord(@PathVariable(value="id") Long id){
         Optional<WordsModel> wordO = wordsService.getOneWord(id);
         if(wordO.isEmpty()){
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Word not found");

@@ -8,5 +8,5 @@ import java.util.UUID;
 
 // Repository interface is responsible for interacting with the database, using the JpaRepository interface
 @Repository
-public interface WordsRepository extends JpaRepository<WordsModel, UUID> {
+public interface WordsRepository extends JpaRepository<WordsModel, Long> {
 }

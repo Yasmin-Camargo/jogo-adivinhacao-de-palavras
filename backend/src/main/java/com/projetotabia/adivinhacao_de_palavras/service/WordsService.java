@@ -44,8 +44,5 @@ public class WordsService {
         wordsRepository.delete(wordModel);
     }
 
-    public WordsModel randonWord(){
-        pass
-    }
 
 }

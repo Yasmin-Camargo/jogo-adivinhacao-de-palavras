@@ -19,5 +19,8 @@ public class WordsModel implements Serializable {
     private Long idWord;
     private String word;
     private String description;
+    private String synonymous;
+    private String level;
+
 
 }

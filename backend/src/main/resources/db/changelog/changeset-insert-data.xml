@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2" author="yasmin">
+        <insert tableName="TB_WORDS">
+            <column name="word" value="saudade"/>
+            <column name="description" value="Sentimento profundo causado pela ausência de algo ou alguém que foi importante."/>
+            <column name="synonymous" value="nostalgia"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="felicidade"/>
+            <column name="description" value="Sentimento de alegria intensa, normalmente relacionado a momentos especiais."/>
+            <column name="synonymous" value="alegria"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="modesto"/>
+            <column name="description" value="Alguém que não exibe ou exagera suas conquistas ou qualidades."/>
+            <column name="synonymous" value="humilde"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="coragem"/>
+            <column name="description" value="A qualidade de alguém que enfrenta dificuldades ou perigos sem mostrar medo."/>
+            <column name="synonymous" value="bravura"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="curioso"/>
+            <column name="description" value="Pessoa que tem interesse em aprender ou descobrir coisas novas."/>
+            <column name="synonymous" value="inquisitivo"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="sorriso"/>
+            <column name="description" value="Expressão facial que demonstra alegria ou satisfação."/>
+            <column name="synonymous" value="risada"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="gratidão"/>
+            <column name="description" value="Sentimento de reconhecimento por algo positivo recebido de alguém."/>
+            <column name="synonymous" value="reconhecimento"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="sabedoria"/>
+            <column name="description" value="Capacidade de fazer julgamentos acertados baseados em conhecimento e experiência."/>
+            <column name="synonymous" value="conhecimento"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="amizade"/>
+            <column name="description" value="Relação de afeto e confiança entre pessoas."/>
+            <column name="synonymous" value="companheirismo"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="otimismo"/>
+            <column name="description" value="Tendência em ver o lado positivo das situações."/>
+            <column name="synonymous" value="positividade"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="respeito"/>
+            <column name="description" value="Atitude de consideração e valorização pelo próximo."/>
+            <column name="synonymous" value="consideração"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="paixão"/>
+            <column name="description" value="Sentimento intenso de afeto ou entusiasmo por algo ou alguém."/>
+            <column name="synonymous" value="amor"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="caridade"/>
+            <column name="description" value="Atitude de ajudar o próximo de forma altruísta."/>
+            <column name="synonymous" value="solidariedade"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="paciência"/>
+            <column name="description" value="Capacidade de tolerar e esperar sem se irritar."/>
+            <column name="synonymous" value="calma"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="generosidade"/>
+            <column name="description" value="Atitude de doar algo ou ajudar os outros de maneira desprendida."/>
+            <column name="synonymous" value="altruísmo"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="esperança"/>
+            <column name="description" value="Sentimento de acreditar que algo positivo acontecerá no futuro."/>
+            <column name="synonymous" value="fé"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="fidelidade"/>
+            <column name="description" value="Qualidade de ser leal a alguém ou algo, mantendo compromisso e confiança."/>
+            <column name="synonymous" value="lealdade"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="empatia"/>
+            <column name="description" value="Capacidade de compreender e partilhar os sentimentos dos outros."/>
+            <column name="synonymous" value="compreensão"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="alegria"/>
+            <column name="description" value="Estado de ânimo em que alguém se sente feliz e contente."/>
+            <column name="synonymous" value="felicidade"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="bondade"/>
+            <column name="description" value="Qualidade de ser gentil, generoso e compassivo."/>
+            <column name="synonymous" value="benevolência"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="inspiração"/>
+            <column name="description" value="Estimulação do intelecto ou das emoções para realizar algo."/>
+            <column name="synonymous" value="motivação"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="confiança"/>
+            <column name="description" value="Crença na capacidade ou integridade de alguém ou algo."/>
+            <column name="synonymous" value="segurança"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="honestidade"/>
+            <column name="description" value="Qualidade de ser verdadeiro, sincero e justo."/>
+            <column name="synonymous" value="integridade"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="tolerância"/>
+            <column name="description" value="Disposição para aceitar as diferenças nos outros, sem preconceito."/>
+            <column name="synonymous" value="aceitação"/>
+            <column name="level" value="1"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

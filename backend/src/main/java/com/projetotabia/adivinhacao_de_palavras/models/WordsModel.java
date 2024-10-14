@@ -22,5 +22,4 @@ public class WordsModel implements Serializable {
     private String synonymous;
     private String level;
 
-
 }

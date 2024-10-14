@@ -44,5 +44,11 @@ public class WordsService {
         wordsRepository.delete(wordModel);
     }
 
+    public WordsModel getRandomWord(){
+        List<WordsModel> words = wordsRepository.findAll();
+        Random random = new Random();
+        return words.get(random.nextInt(words.size()));
+    }
+
 
 }

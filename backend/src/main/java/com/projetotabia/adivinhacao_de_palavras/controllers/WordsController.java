@@ -20,7 +20,7 @@ import java.util.Optional;
 public class WordsController {
 
     @Autowired
-    WordsService wordsService;
+    private WordsService wordsService;
 
     @PostMapping("/words")
     public ResponseEntity<WordsModel> saveWord(@RequestBody @Valid WordsRecordDto wordsRecordDto) {

@@ -173,5 +173,237 @@
             <column name="synonymous" value="aceitação"/>
             <column name="level" value="1"/>
         </insert>
+        
+        <insert tableName="TB_WORDS">
+            <column name="word" value="mesa"/>
+            <column name="description" value="Móvel com superfície plana e suportes, usado para apoiar objetos, refeições ou para atividades como trabalho e estudo."/>
+            <column name="synonymous" value="tabuleiro"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="cadeira"/>
+            <column name="description" value="Móvel projetado para uma pessoa se sentar, geralmente com encosto e pernas."/>
+            <column name="synonymous" value="assento"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="computador"/>
+            <column name="description" value="Dispositivo eletrônico que processa informações e realiza cálculos, utilizado para diversas tarefas como trabalho, lazer e comunicação."/>
+            <column name="synonymous" value="máquina"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="livro"/>
+            <column name="description" value="Coleção de páginas escritas ou impressas encadernadas, utilizadas para leitura, estudo ou consulta."/>
+            <column name="synonymous" value="obra"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="caderno"/>
+            <column name="description" value="Conjunto de folhas de papel encadernadas, usadas para anotações, esboços ou registros."/>
+            <column name="synonymous" value="bloco"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="vaso"/>
+            <column name="description" value="Recipiente utilizado para conter flores ou plantas."/>
+            <column name="synonymous" value="jarro"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="bola"/>
+            <column name="description" value="Objeto esférico usado em diversos jogos e esportes."/>
+            <column name="synonymous" value="esfera"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="rua"/>
+            <column name="description" value="Via pública em áreas urbanas, destinada à circulação de veículos e pedestres."/>
+            <column name="synonymous" value="estrada"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="praia"/>
+            <column name="description" value="Área de areia ou seixos ao longo de um corpo d'água, frequentemente utilizada para lazer."/>
+            <column name="synonymous" value="costão"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="montanha"/>
+            <column name="description" value="Elevação natural do terreno, geralmente com altitude significativa em relação ao nível do mar."/>
+            <column name="synonymous" value="pico"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="cidade"/>
+            <column name="description" value="Área urbana com população significativa e infraestrutura desenvolvida."/>
+            <column name="synonymous" value="metrópole"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="vento"/>
+            <column name="description" value="Movimento do ar em diferentes direções, causado por variações na pressão atmosférica."/>
+            <column name="synonymous" value="brisa"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="luz"/>
+            <column name="description" value="Radiação que torna os objetos visíveis, consistindo em ondas eletromagnéticas."/>
+            <column name="synonymous" value="iluminação"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="caminho"/>
+            <column name="description" value="Rota ou trajetória a ser seguida para ir de um lugar a outro."/>
+            <column name="synonymous" value="trilha"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="estrela"/>
+            <column name="description" value="Corpo celeste que brilha no céu, composta principalmente por gases e que gera energia por fusão nuclear."/>
+            <column name="synonymous" value="astro"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="nuvem"/>
+            <column name="description" value="Agregados de gotas de água ou cristais de gelo suspensos na atmosfera."/>
+            <column name="synonymous" value="nebulosidade"/>
+            <column name="level" value="1"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="cápsula"/>
+            <column name="description" value="Recipiente pequeno e fechado, usado para armazenar ou transportar medicamentos."/>
+            <column name="synonymous" value="recipiente"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="mistério"/>
+            <column name="description" value="Situação ou evento que é desconhecido ou difícil de entender."/>
+            <column name="synonymous" value="enigma"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="antídoto"/>
+            <column name="description" value="Substância que neutraliza o efeito de um veneno."/>
+            <column name="synonymous" value="cura"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="labirinto"/>
+            <column name="description" value="Estrutura complexa de caminhos que dificulta a saída."/>
+            <column name="synonymous" value="confusão"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="sonho"/>
+            <column name="description" value="Série de imagens, ideias e sensações que ocorrem durante o sono."/>
+            <column name="synonymous" value="visão"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="sarcófago"/>
+            <column name="description" value="Caixão de pedra ou outro material que abriga um corpo."/>
+            <column name="synonymous" value="sepultura"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="pecado"/>
+            <column name="description" value="Ação que vai contra normas morais ou religiosas."/>
+            <column name="synonymous" value="transgressão"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="paradoxo"/>
+            <column name="description" value="Declaração ou situação que parece contraditória, mas pode ser verdadeira."/>
+            <column name="synonymous" value="contradição"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="crucifixo"/>
+            <column name="description" value="Símbolo da crucificação de Jesus Cristo, geralmente representado como uma cruz."/>
+            <column name="synonymous" value="símbolo"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="sabedoria"/>
+            <column name="description" value="Capacidade de tomar decisões acertadas com base em experiência e conhecimento."/>
+            <column name="synonymous" value="inteligência"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="sussurro"/>
+            <column name="description" value="Fala muito baixa, quase inaudível."/>
+            <column name="synonymous" value="murro"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="alquimia"/>
+            <column name="description" value="Antiga prática que buscava transformar metais em ouro e encontrar o elixir da vida."/>
+            <column name="synonymous" value="transformação"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="metáfora"/>
+            <column name="description" value="Comparação implícita entre duas coisas diferentes, sem o uso de 'como'."/>
+            <column name="synonymous" value="analogia"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="efêmero"/>
+            <column name="description" value="Que dura por pouco tempo; transitório."/>
+            <column name="synonymous" value="temporário"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="reverência"/>
+            <column name="description" value="Sentimento profundo de respeito e admiração."/>
+            <column name="synonymous" value="veneração"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="paranoia"/>
+            <column name="description" value="Estado mental caracterizado por desconfiança excessiva."/>
+            <column name="synonymous" value="suspeita"/>
+            <column name="level" value="2"/>
+        </insert>
+
+        <insert tableName="TB_WORDS">
+            <column name="word" value="insight"/>
+            <column name="description" value="Compreensão repentina e clara de uma situação ou problema."/>
+            <column name="synonymous" value="percepção"/>
+            <column name="level" value="2"/>
+        </insert>
+
     </changeSet>
 </databaseChangeLog>

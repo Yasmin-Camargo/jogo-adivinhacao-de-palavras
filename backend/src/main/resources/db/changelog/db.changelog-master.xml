@@ -7,4 +7,5 @@
 
     <include file="db/changelog/changeset-create-table.xml"/>
     <include file="db/changelog/changeset-insert-data.xml"/>
+    <include file="db/changelog/changeset-set-not-null-columns.xml"/>
 </databaseChangeLog>

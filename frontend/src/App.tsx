@@ -1,7 +1,8 @@
 // App.tsx
-import { Box, Heading, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
-import { GamePage } from './pages/game';
-import { WordList } from './pages/wordList'; 
+import { Box, Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react';
+import { GamePage } from './pages/gamePage';
+import { WordList } from './pages/wordListPage'; 
+import React from 'react';
 
 function App() {
   return (

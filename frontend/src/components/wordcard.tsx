@@ -29,6 +29,7 @@ export const Card = ({ wordData }: CardProps) => {
       <CardHeader>
         <Heading size="md">{capitalize(wordData.word)}</Heading>
       </CardHeader>
+
       <CardBody>
         <Text>{capitalize(wordData.description)}</Text>
         <Text mt={2}>
@@ -38,6 +39,7 @@ export const Card = ({ wordData }: CardProps) => {
           Nível {wordData.level.toLowerCase()}
         </Text>
       </CardBody>
+
       <CardFooter>
         <ButtonGroup variant="outline" isAttached width="100%">
           <Button colorScheme="gray" size="md" width="50%">
@@ -48,6 +50,7 @@ export const Card = ({ wordData }: CardProps) => {
           </Button>
         </ButtonGroup>
       </CardFooter>
+      
     </ChakraCard>
   );
 };

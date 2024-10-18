@@ -1,6 +1,10 @@
-// WordModal.js
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  FormControl,
+  FormLabel,
+  Input,
+  Select,
+  Button,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -8,40 +12,45 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  Button,
 } from '@chakra-ui/react';
+import { WordData } from '../interface/WordData'; 
 
-const WordModal = ({ isOpen, onClose, onSave }) => {
-  const initialRef = React.useRef(null);
+interface WordFormProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onSave: (newWordData: WordData) => Promise<void>; 
+}
 
-  const [word, setWord] = React.useState('');
-  const [description, setDescription] = React.useState('');
-  const [hint, setHint] = React.useState('');
-  const [level, setLevel] = React.useState('');
+const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
+  const [word, setWord] = useState('');
+  const [description, setDescription] = useState('');
+  const [synonymous, setSynonymous] = useState('');
+  const [level, setLevel] = useState('');
 
-  const handleSave = () => {
-    const newWordData = {
-      word,
-      description,
-      hint,
-      level,
-    };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    if (name === 'word') setWord(value);
+    if (name === 'description') setDescription(value);
+    if (name === 'synonymous') setSynonymous(value);
+    if (name === 'level') setLevel(value);
+  };
 
-    onSave(newWordData); // Chama a função de salvar recebida como prop
-    onClose(); // Fecha o modal
-    // Reseta os campos após salvar
+  const resetForm = () => {
     setWord('');
     setDescription('');
-    setHint('');
+    setSynonymous('');
     setLevel('');
   };
 
+  const handleSubmit = async () => {
+    const newWordData: WordData = { word, description, synonymous, level };
+    await onSave(newWordData); 
+    onClose();
+    resetForm();
+  };
+
   return (
-    <Modal initialFocusRef={initialRef} isOpen={isOpen} onClose={onClose}>
+    <Modal initialFocusRef={React.useRef(null)} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>Adicionar nova palavra</ModalHeader>
@@ -50,36 +59,36 @@ const WordModal = ({ isOpen, onClose, onSave }) => {
           <FormControl isRequired>
             <FormLabel>Palavra</FormLabel>
             <Input
-              ref={initialRef}
+              name="word"
               value={word}
-              onChange={(e) => setWord(e.target.value)}
+              onChange={handleChange}
               placeholder='Palavra para ser adivinhada'
             />
           </FormControl>
-
           <FormControl isRequired mt={4}>
             <FormLabel>Descrição</FormLabel>
             <Input
+              name="description"
               value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              onChange={handleChange}
               placeholder='Descrição da palavra'
             />
           </FormControl>
-
           <FormControl isRequired mt={4}>
             <FormLabel>Dica</FormLabel>
             <Input
-              value={hint}
-              onChange={(e) => setHint(e.target.value)}
+              name="synonymous"
+              value={synonymous}
+              onChange={handleChange}
               placeholder='Dica (uma palavra)'
             />
           </FormControl>
-
           <FormControl isRequired mt={4}>
-            <FormLabel>Leve</FormLabel>
+            <FormLabel>Nível</FormLabel>
             <Select
+              name="level"
               value={level}
-              onChange={(e) => setLevel(e.target.value)}
+              onChange={handleChange}
               placeholder='Selecione o nível'
             >
               <option value="1">1</option>
@@ -87,9 +96,8 @@ const WordModal = ({ isOpen, onClose, onSave }) => {
             </Select>
           </FormControl>
         </ModalBody>
-
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={handleSave}>
+          <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
             Salvar
           </Button>
           <Button onClick={onClose}>Cancelar</Button>
@@ -99,4 +107,4 @@ const WordModal = ({ isOpen, onClose, onSave }) => {
   );
 };
 
-export default WordModal;
+export default WordForm;

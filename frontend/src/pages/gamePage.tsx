@@ -5,10 +5,15 @@ import { useGame } from '../hooks/useGame';
 export const GamePage = () => {
   const { word, setWord, message, startGame, checkWord } = useGame();
   const [description, setDescription] = useState('');
+  const [level, setLevel] = useState('');
+  const [synonymous, setSynonymous] = useState('?');
 
   const handleStartGame = async () => {
-    const desc = await startGame();
-    setDescription(desc);
+    let body = await startGame();
+    body = body.split(";");
+    setDescription(body[0]);
+    setLevel(body[1]);
+    setSynonymous(body[2]);
   };
 
   return (
@@ -50,6 +55,7 @@ export const GamePage = () => {
           </CardHeader>
           <CardBody>
             <span style={{ fontSize: '3rem' }}> ❓</span>
+            <Text>Dica: {synonymous}</Text>
           </CardBody>
         </Card>
       </Flex>

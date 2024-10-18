@@ -1,3 +1,5 @@
+import { WordData } from '../interface/WordData';
+
 import {
   Card as ChakraCard,
   CardHeader,
@@ -8,14 +10,6 @@ import {
   Text,
   ButtonGroup,
 } from '@chakra-ui/react';
-
-interface WordData {
-  id: number;
-  word: string;
-  description: string;
-  synonymous: string;
-  level: string;
-}
 
 interface CardProps {
   wordData: WordData;

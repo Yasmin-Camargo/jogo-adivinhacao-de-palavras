@@ -1,16 +1,21 @@
 import { Box, Button, useDisclosure } from '@chakra-ui/react';
 import { useWordData } from '../hooks/useWordData';
 import { Card } from '../components/wordcard';
-import WordModal from '../components/wordform'; 
+import WordForm from '../components/wordform';
 import { WordData } from '../interface/WordData';
+import { saveWord } from '../hooks/useWordForm'; 
 
 export const WordList = () => {
-  const { data } = useWordData();
-  const { isOpen, onOpen, onClose } = useDisclosure(); 
+  const { data, refetch } = useWordData();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const handleSave = (newWordData: WordData) => {
-    console.log('Nova palavra adicionada:', newWordData);
-    // lógica para salvar a nova palavra 
+  const handleSave = async (newWordData: WordData) => { 
+    try {
+      await saveWord(newWordData);
+      refetch(); 
+    } catch (error) {
+      console.error('Erro ao adicionar palavra:', error);
+    }
   };
 
   return (
@@ -18,8 +23,7 @@ export const WordList = () => {
       <Button colorScheme="green" size="md" onClick={onOpen}>
         +
       </Button>
-      <WordModal isOpen={isOpen} onClose={onClose} onSave={handleSave} />
-
+      <WordForm isOpen={isOpen} onClose={onClose} onSave={handleSave} />
       <Box
         display="grid"
         gridTemplateColumns="repeat(auto-fill, minmax(250px, 1fr))"

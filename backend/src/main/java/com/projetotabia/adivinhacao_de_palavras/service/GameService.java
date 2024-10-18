@@ -17,7 +17,7 @@ public class GameService {
 
     public String startGame(){
         currentWord = wordsService.getRandomWord();
-        return currentWord.getDescription();
+        return currentWord.getDescription() + ";" + currentWord.getLevel() + ";" + currentWord.getSynonymous();
     }
 
     public boolean checkWord(String word){
@@ -34,7 +34,7 @@ public class GameService {
 
     public String normalizeWord(String input) {
         String normalized = Normalizer.normalize(input.toLowerCase(), Normalizer.Form.NFD);
-        return normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+", "").replaceAll("ç", "c");
+        return normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+", "").replaceAll("ç", "-").replaceAll("", "c");
     }
 
 

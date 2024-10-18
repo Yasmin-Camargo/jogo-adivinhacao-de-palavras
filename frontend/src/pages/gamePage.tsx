@@ -1,12 +1,16 @@
 import { useState } from 'react';
-import { Box, Heading, Input, Button, Text, Stack, Card, CardBody, CardHeader, Grid, Flex } from '@chakra-ui/react';
+import { Box, Heading, Input, Button, Text, Stack, Card, CardBody, CardHeader, Flex, HStack } from '@chakra-ui/react';
+import { ViewIcon } from '@chakra-ui/icons';
 import { useGame } from '../hooks/useGame';
 
 export const GamePage = () => {
-  const { word, setWord, message, startGame, checkWord } = useGame();
+  const { word, setWord, message, setMessage, startGame, checkWord, finish } = useGame();
   const [description, setDescription] = useState('');
   const [level, setLevel] = useState('');
   const [synonymous, setSynonymous] = useState('?');
+  const [showHint, setShowHint] = useState(false);
+  const [showDescription, setshowDescription] = useState(false);
+  const [isGameStarted, setIsGameStarted] = useState(false); 
 
   const handleStartGame = async () => {
     let body = await startGame();
@@ -14,6 +18,23 @@ export const GamePage = () => {
     setDescription(body[0]);
     setLevel(body[1]);
     setSynonymous(body[2]);
+    setMessage('');
+    setShowHint(false);
+    setshowDescription(true);
+    setIsGameStarted(true); 
+  };
+
+  const handleCheckWord = () => {
+    checkWord(word);
+    if (finish) {
+      setIsGameStarted(false); 
+    }
+    setWord(''); 
+  };
+
+  const handleShowHint = () => {
+    setShowHint(true);
+    checkWord('showsynonymous');
   };
 
   return (
@@ -27,15 +48,6 @@ export const GamePage = () => {
       >
         Jogo de Adivinhação de Palavras
       </Heading>
-
-      <Button 
-        colorScheme="green" 
-        size="md" 
-        onClick={handleStartGame} 
-        mb={4}
-      >
-        Sortear nova palavra
-      </Button>
 
       <Flex justify="center">
         <Card 
@@ -54,8 +66,29 @@ export const GamePage = () => {
             </Heading>
           </CardHeader>
           <CardBody>
-            <span style={{ fontSize: '3rem' }}> ❓</span>
-            <Text>Dica: {synonymous}</Text>
+            <span style={{ fontSize: '3rem' }}>❓</span>
+
+            {showDescription ? (
+              <HStack spacing={2}>
+                <Text fontWeight="bold">Dica:</Text>
+                {!showHint ? (
+                  <ViewIcon w={8} h={8} cursor="pointer" onClick={handleShowHint} color="gray" />
+                ) : (
+                  <Text>{synonymous}</Text>
+                )}
+              </HStack>
+            ) : (
+              <Box>
+                <Text as='b'>
+                  Você tem 3 tentativas para adivinhar a palavra.
+                </Text>
+                <br />
+                <Text as='kbd'>
+                  Lembre-se: usar uma dica contará como uma tentativa.
+                </Text>
+              </Box>
+            )}
+            
           </CardBody>
         </Card>
       </Flex>
@@ -71,8 +104,13 @@ export const GamePage = () => {
         />
       </Stack>
     
-      <Button colorScheme="blue" size="md" onClick={() => checkWord(word)} mt={4}>
-        Verificar
+      <Button 
+        colorScheme={isGameStarted ? "blue" : "green"} 
+        size="md" 
+        onClick={isGameStarted ? handleCheckWord : handleStartGame} 
+        mt={4}
+      >
+        {isGameStarted ? "Verificar" : "Sortear nova palavra"} 
       </Button>
       
       <Text size='lg' color="white" mt={4}>

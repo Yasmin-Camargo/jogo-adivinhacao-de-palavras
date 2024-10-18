@@ -21,14 +21,7 @@ public class GameController {
 
     @GetMapping("/check/{word}")
     public ResponseEntity<String> checkWord(@PathVariable(value="word") String word) {
-        String response;
-        if (gameService.checkWord(word)) {
-            response =  "Parabéns! Você acertou a palavra!";
-        }
-        else{
-            response = "Não foi dessa vez! A palavra era: "+ gameService.getCurrentWord();
-        }
-        return ResponseEntity.status(HttpStatus.OK).body(response);
+        return ResponseEntity.status(HttpStatus.OK).body(gameService.checkWord(word));
     }
 
 

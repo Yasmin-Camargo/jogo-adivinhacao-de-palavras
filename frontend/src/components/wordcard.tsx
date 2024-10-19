@@ -1,4 +1,5 @@
 import { WordData } from '../interface/WordData';
+import { useRemoveWord } from '../hooks/useRemoveWord'; 
 
 import {
   Card as ChakraCard,
@@ -13,9 +14,21 @@ import {
 
 interface CardProps {
   wordData: WordData;
+  refetch: () => void;  
 }
 
-export const Card = ({ wordData }: CardProps) => {
+const deleteWord = async (wordData: WordData, removeWord: any, refetch: () => void) => {
+  try {
+    await removeWord(wordData.idWord);
+    refetch();  
+  } catch (error) {
+    console.error('Erro ao excluir palavra:', error);
+  }
+};
+
+export const Card = ({ wordData, refetch }: CardProps) => {  
+  const { removeWord } = useRemoveWord(); 
+
   const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
 
   return (
@@ -30,7 +43,7 @@ export const Card = ({ wordData }: CardProps) => {
           <b>Dica:</b> {wordData.synonymous.toLowerCase()}
         </Text>
         <Text mt={2} fontSize="sm" color="gray.500">
-          Nível {wordData.level.toLowerCase()}
+          Nível {wordData.level.toLowerCase()} 
         </Text>
       </CardBody>
 
@@ -39,12 +52,16 @@ export const Card = ({ wordData }: CardProps) => {
           <Button colorScheme="gray" size="md" width="50%">
             Editar
           </Button>
-          <Button colorScheme="gray" size="md" width="50%">
-            Excluir
+          <Button
+            colorScheme="red"
+            size="md"
+            width="50%"
+            onClick={() => deleteWord(wordData, removeWord, refetch)}  
+          >
+            Excluir 
           </Button>
         </ButtonGroup>
       </CardFooter>
-      
     </ChakraCard>
   );
 };

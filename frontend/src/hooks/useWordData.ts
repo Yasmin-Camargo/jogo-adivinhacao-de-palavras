@@ -4,9 +4,9 @@ import { useQuery } from "@tanstack/react-query";
 
 const API_URL = "http://localhost:8080";
 
-const fetchData = async (): AxiosPromise<WordData[]> => {
-  const response = axios.get(API_URL + "/words");
-  return response;
+const fetchData = async (): Promise<WordData[]> => {
+  const response = await axios.get<WordData[]>(`${API_URL}/words`);
+  return response.data;  // Retorne apenas os dados
 };
 
 export function useWordData() {
@@ -17,7 +17,7 @@ export function useWordData() {
   });
 
   return { 
-    data: query.data?.data,
+    data: query.data,  
     refetch: query.refetch,
     isLoading: query.isLoading,
     isError: query.isError

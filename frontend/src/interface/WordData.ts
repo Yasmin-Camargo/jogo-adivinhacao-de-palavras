@@ -1,5 +1,5 @@
 export interface WordData {
-    id?: number,
+    idWord?: number,
     word: string,
     description: string,
     synonymous: string,

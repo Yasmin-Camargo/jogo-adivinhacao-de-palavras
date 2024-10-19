@@ -28,7 +28,7 @@ public class GameService {
         numberAttempts -= 1;
 
         if (victory && numberAttempts >= 0) {
-            return "Parabéns! Você acertou!";
+            return "Parabéns! Você acertou!!! A palavra era "+ currentWord.getWord() +"!";
         }
         else if (numberAttempts == 0 || numberAttempts < 0){
             return "Suas tentativas acabaram. A palavra era: " + currentWord.getWord();

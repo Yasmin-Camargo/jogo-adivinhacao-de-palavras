@@ -1,6 +1,10 @@
 package com.projetotabia.adivinhacao_de_palavras.controllers;
 
 import com.projetotabia.adivinhacao_de_palavras.service.GameService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,15 +18,20 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
+    @Operation(summary = "Start a new game", description = "This endpoint starts a new game and provides a description, level, and synonymous of the current word.")
     @GetMapping("/start")
-    public ResponseEntity<String> startGame(){
+    public ResponseEntity<String> startGame() {
         return ResponseEntity.status(HttpStatus.OK).body(gameService.startGame());
     }
 
+    @Operation(summary = "Check a guessed word", description = "This endpoint checks if the guessed word is correct and returns the result.")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Check result returned successfully")
+    })
     @GetMapping("/check/{word}")
-    public ResponseEntity<String> checkWord(@PathVariable(value="word") String word) {
+    public ResponseEntity<String> checkWord(
+            @Parameter(description = "The word guessed by the player", required = true) @PathVariable(value = "word") String word) {
+
         return ResponseEntity.status(HttpStatus.OK).body(gameService.checkWord(word));
     }
-
-
 }

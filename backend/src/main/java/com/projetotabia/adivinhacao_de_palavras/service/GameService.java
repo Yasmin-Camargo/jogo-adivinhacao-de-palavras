@@ -7,6 +7,10 @@ import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
 
+/**
+ * Service class responsible for managing the game logic.
+ * This includes starting the game, checking guessed words, and providing hints.
+ */
 @Service
 public class GameService {
 
@@ -16,19 +20,34 @@ public class GameService {
     private WordsModel currentWord;
     private int numberAttempts;
 
+    /**
+     * Starts a new game by selecting a random word and resetting the number of attempts.
+     *
+     * @return a string containing the description, level, and synonymous of the current word
+     */
     public String startGame(){
         currentWord = wordsService.getRandomWord();
         numberAttempts = 3;
         return currentWord.getDescription() + ";" + currentWord.getLevel() + ";" + currentWord.getSynonymous();
     }
 
+    /**
+     * Checks if the guessed word is correct and provides feedback.
+     *
+     * @param word the guessed word by the player
+     * @return a message indicating whether the guess was correct, incorrect, or if attempts are exhausted
+     */
     public String checkWord(String word){
+        if (currentWord == null || currentWord.getWord() == null || currentWord.getWord().isEmpty()) {
+            return "O jogo não foi iniciado ainda.";
+        }
+
         word = normalizeWord(word);
         boolean victory = word.equals(normalizeWord(currentWord.getWord()));
         numberAttempts -= 1;
 
         if (victory && numberAttempts >= 0) {
-            return "Parabéns! Você acertou!!! A palavra era "+ currentWord.getWord() +"!";
+            return "Parabéns! Você acertou!!! A palavra era " + currentWord.getWord() + "!";
         }
         else if (numberAttempts == 0 || numberAttempts < 0){
             return "Suas tentativas acabaram. A palavra era: " + currentWord.getWord();
@@ -41,14 +60,24 @@ public class GameService {
         }
     }
 
+    /**
+     * Retrieves the current word being guessed.
+     *
+     * @return the current word
+     */
     public String getCurrentWord(){
         return currentWord.getWord();
     }
 
+    /**
+     * Normalizes a given word by converting it to lowercase, removing diacritical marks,
+     * replacing "ç" with "c", and removing hyphens.
+     *
+     * @param input the word to be normalized
+     * @return the normalized word
+     */
     public String normalizeWord(String input) {
         String normalized = Normalizer.normalize(input.toLowerCase(), Normalizer.Form.NFD);
         return normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+", "").replaceAll("ç", "c").replaceAll("-", "");
     }
-
-
 }

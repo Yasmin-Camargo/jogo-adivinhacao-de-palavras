@@ -16,8 +16,8 @@ import {
 import { WordData } from '../interface/WordData'; 
 
 interface WordFormProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen: boolean; 
+  onClose: () => void; 
   onSave: (newWordData: WordData) => Promise<void>; 
 }
 
@@ -27,6 +27,10 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
   const [synonymous, setSynonymous] = useState('');
   const [level, setLevel] = useState('');
 
+  /**
+   * Handles input changes by updating the respective state variables.
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLSelectElement>} e - The change event.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     if (name === 'word') setWord(value);
@@ -35,6 +39,9 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
     if (name === 'level') setLevel(value);
   };
 
+  /**
+   * Resets the form fields to their initial empty state.
+   */
   const resetForm = () => {
     setWord('');
     setDescription('');
@@ -42,10 +49,14 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
     setLevel('');
   };
 
+  /**
+   * Handles the form submission by creating a new WordData object,
+   * saving it via the onSave function, and then closing the modal and resetting the form.
+   */
   const handleSubmit = async () => {
     const newWordData: WordData = { word, description, synonymous, level };
     await onSave(newWordData); 
-    onClose();
+    onClose(); 
     resetForm();
   };
 
@@ -53,7 +64,7 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
     <Modal initialFocusRef={React.useRef(null)} isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Adicionar nova palavra</ModalHeader>
+        <ModalHeader>Adicionar nova palavra</ModalHeader> 
         <ModalCloseButton />
         <ModalBody pb={6}>
           <FormControl isRequired>
@@ -62,7 +73,7 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
               name="word"
               value={word}
               onChange={handleChange}
-              placeholder='Palavra para ser adivinhada'
+              placeholder='Palavra para ser adivinhada' 
             />
           </FormControl>
           <FormControl isRequired mt={4}>
@@ -71,7 +82,7 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
               name="description"
               value={description}
               onChange={handleChange}
-              placeholder='Descrição da palavra'
+              placeholder='Descrição da palavra' 
             />
           </FormControl>
           <FormControl isRequired mt={4}>
@@ -80,7 +91,7 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
               name="synonymous"
               value={synonymous}
               onChange={handleChange}
-              placeholder='Dica (uma palavra)'
+              placeholder='Dica (uma palavra)' 
             />
           </FormControl>
           <FormControl isRequired mt={4}>
@@ -89,9 +100,9 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
               name="level"
               value={level}
               onChange={handleChange}
-              placeholder='Selecione o nível'
+              placeholder='Selecione o nível' 
             >
-              <option value="1">1</option>
+              <option value="1">1</option> 
               <option value="2">2</option>
             </Select>
           </FormControl>
@@ -100,11 +111,11 @@ const WordForm: React.FC<WordFormProps> = ({ isOpen, onClose, onSave }) => {
           <Button colorScheme="blue" mr={3} onClick={handleSubmit}>
             Salvar
           </Button>
-          <Button onClick={onClose}>Cancelar</Button>
+          <Button onClick={onClose}>Cancelar</Button> 
         </ModalFooter>
       </ModalContent>
     </Modal>
   );
 };
 
-export default WordForm;
+export default WordForm; 

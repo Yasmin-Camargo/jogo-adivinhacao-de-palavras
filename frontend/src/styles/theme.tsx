@@ -4,7 +4,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: '#21003b',
+        bgGradient: 'linear(to-r, #8d2c91, #1815b6)',
       },
     },
   },

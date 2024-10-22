@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.0-M3</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 	<groupId>com.projetotabia</groupId>
 	<artifactId>backend</artifactId>
@@ -112,44 +112,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-
-			<plugin>
-				<groupId>org.liquibase</groupId>
-				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>4.29.2</version>
-				<configuration>
-					<changeLogFile>src/main/resources/db/changelog/db.changelog-master.xml</changeLogFile>
-					<diffChangeLogFile>src/main/resources/db/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-					<driver>org.postgresql.Driver</driver> <!-- Driver do PostgreSQL -->
-					<url>jdbc:postgresql://localhost:5432/words-description-api</url> <!-- URL do banco de dados -->
-					<defaultSchemaName>public</defaultSchemaName> <!-- Esquema padrão do PostgreSQL -->
-					<username>postgres</username> <!-- Nome de usuário do banco de dados -->
-					<password>banco123</password> <!-- Senha do banco de dados -->
-					<referenceUrl>hibernate:spring:dev.cat.liquibasedemo?dialect=org.hibernate.dialect.PostgreSQLDialect
-						&amp;hibernate.physical_naming_strategy=org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-						&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-					</referenceUrl>
-					<verbose>true</verbose>
-				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.liquibase.ext</groupId>
-						<artifactId>liquibase-hibernate6</artifactId>
-						<version>4.27.0</version>
-					</dependency>
-					<dependency>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-starter-data-jpa</artifactId>
-						<version>3.2.4</version>
-					</dependency>
-					<dependency>
-						<groupId>org.postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-						<version>42.7.4</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-
 		</plugins>
 	</build>
 	<repositories>

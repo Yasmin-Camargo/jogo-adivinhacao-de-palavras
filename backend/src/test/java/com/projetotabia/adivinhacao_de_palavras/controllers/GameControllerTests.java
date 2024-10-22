@@ -42,7 +42,7 @@ public class GameControllerTests {
 
     /**
      * Tests successful starting of a new game.
-     * Expects to receive a response with description; level; synonymous.
+     * Expects to receive a response with description; synonymous.
      */
     @Test
     @DirtiesContext
@@ -52,8 +52,9 @@ public class GameControllerTests {
                 .uri("/game/start")
                 .exchange()
                 .expectStatus().isOk()
-                .expectBody(String.class)
-                .value(equalTo("Machine intended for data processing;1;laptop"));
+                .expectBody()
+                .jsonPath("$.description").isEqualTo("Machine intended for data processing")
+                .jsonPath("$.synonymous").isEqualTo("laptop");
     }
 
     /**

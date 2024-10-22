@@ -1,11 +1,11 @@
 package com.projetotabia.adivinhacao_de_palavras.service;
 
 import com.projetotabia.adivinhacao_de_palavras.models.WordsModel;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.Normalizer;
+import com.projetotabia.adivinhacao_de_palavras.dtos.GameStartDto;
 
 /**
  * Service class responsible for managing the game logic.
@@ -23,18 +23,20 @@ public class GameService {
     /**
      * Starts a new game by selecting a random word and resetting the number of attempts.
      *
-     * @return a string containing the description, level, and synonymous of the current word
+     * @return a Dto containing the description and synonymous of the current word
      */
-    public String startGame(){
+    public GameStartDto startGame(){
         currentWord = wordsService.getRandomWord();
+        GameStartDto gameStartDto = new GameStartDto(currentWord.getDescription(), currentWord.getSynonymous());
         numberAttempts = 3;
-        return currentWord.getDescription() + ";" + currentWord.getLevel() + ";" + currentWord.getSynonymous();
+        return gameStartDto;
     }
 
     /**
      * Checks if the guessed word is correct and provides feedback.
      *
-     * @param word the guessed word by the player
+     * @param word the guessed word by the player.
+     *             If the word is "showsynonymous", the synonymous is revealed.
      * @return a message indicating whether the guess was correct, incorrect, or if attempts are exhausted
      */
     public String checkWord(String word){

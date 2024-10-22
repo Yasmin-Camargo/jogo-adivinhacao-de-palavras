@@ -6,7 +6,7 @@ const API_URL = "http://localhost:8080";
 
 const fetchData = async (): Promise<WordData[]> => {
   const response = await axios.get<WordData[]>(`${API_URL}/words`);
-  return response.data;  // Retorne apenas os dados
+  return response.data;  
 };
 
 export function useWordData() {

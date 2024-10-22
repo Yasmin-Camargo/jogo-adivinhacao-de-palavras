@@ -1,40 +1,45 @@
 import { useState } from 'react';
 import { Box, Heading, Input, Button, Text, Stack, Card, CardBody, CardHeader, Flex, HStack } from '@chakra-ui/react';
 import { ViewIcon } from '@chakra-ui/icons';
-import { useGame } from '../hooks/useGame';
+import { startGame, useCheckWord } from '../hooks/useGame';
 
 export const GamePage = () => {
-  const { word, setWord, message, setMessage, startGame, checkWord, finish } = useGame();
+  const [word, setWord] = useState('');
   const [description, setDescription] = useState('');
-  const [level, setLevel] = useState('');
   const [synonymous, setSynonymous] = useState('?');
   const [showHint, setShowHint] = useState(false);
-  const [showDescription, setshowDescription] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
   const [isGameStarted, setIsGameStarted] = useState(false); 
 
-  const handleStartGame = async () => {
-    let body = await startGame();
-    body = body.split(";");
-    setDescription(body[0]);
-    setLevel(body[1]);
-    setSynonymous(body[2]);
-    setMessage('');
-    setShowHint(false);
-    setshowDescription(true);
-    setIsGameStarted(true); 
+  const { message, setMessage, finish, setFinish, checkWord } = useCheckWord();
+
+  const handleStartGame = () => {
+    startGame()
+      .then(body => {
+        setDescription(body.description);
+        setSynonymous(body.synonymous);
+        setMessage('');
+        setFinish(false);
+        setShowHint(false);
+        setShowDescription(true);
+        setIsGameStarted(true);
+      })
+      .catch(error => {
+        console.error('Erro ao iniciar o jogo:', error);
+      });
   };
 
-  const handleCheckWord = () => {
-    checkWord(word);
+  const handleCheckWord = async () => {
+    await checkWord(word);  
     if (finish) {
       setIsGameStarted(false); 
     }
     setWord(''); 
   };
 
-  const handleShowHint = () => {
+  const handleShowHint = async () => {
     setShowHint(true);
-    checkWord('showsynonymous');
+    await checkWord('showsynonymous');
   };
 
   return (

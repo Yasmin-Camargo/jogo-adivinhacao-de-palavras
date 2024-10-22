@@ -1,5 +1,6 @@
 package com.projetotabia.adivinhacao_de_palavras.controllers;
 
+import com.projetotabia.adivinhacao_de_palavras.dtos.GameStartDto;
 import com.projetotabia.adivinhacao_de_palavras.service.GameService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -29,7 +30,7 @@ public class GameController {
      */
     @Operation(summary = "Start a new game", description = "This endpoint starts a new game and provides a description, level, and synonymous of the current word.")
     @GetMapping("/start")
-    public ResponseEntity<String> startGame() {
+    public ResponseEntity<GameStartDto> startGame() {
         return ResponseEntity.status(HttpStatus.OK).body(gameService.startGame());
     }
 

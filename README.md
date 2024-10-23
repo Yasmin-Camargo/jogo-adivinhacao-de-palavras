@@ -7,10 +7,13 @@ Jogo de Adivinhação de Palavras com base na sua definição, desenvolvido em J
 ### Backend
 - **☕ Java**: Linguagem de programação utilizada.
 - **🌱 Spring Boot**: Framework para criação de aplicações Java.
-- **🐘 PostgreSQL**: Banco de dados utilizado.
-- **🔄 Liquibase**: Ferramenta para versionamento de banco de dados.
-- **📜 Swagger**: Documentação de API.
 - **🔧 Maven**: Gerencia dependências e automatiza o processo de build do projeto.
+- **🐘 PostgreSQL**: Banco de dados utilizado.
+- **🍃 Hibernate**: Comunicação entre aplicações Java e bancos de dados.
+- **🔄 Liquibase**: Ferramenta para versionamento de banco de dados.
+- **📜 Swagger**: Documentação da API.
+- **📜 JavaDoc**: Documentação do código Java.
+- **🧪 JUnit**: Testes unitários em Java.
 
 ### Frontend
 - **⚛️ React**: Biblioteca JavaScript para construção de interfaces de usuário.
@@ -19,6 +22,7 @@ Jogo de Adivinhação de Palavras com base na sua definição, desenvolvido em J
 - **📦 npm**: Gerenciador de pacotes para JavaScript, utilizado para instalar dependências do projeto.
 - **📦 Webpack**: Empacotador de módulos que compila e otimiza os arquivos do projeto.
 - **🔄 Babel**: Converte código JavaScript moderno em versões compatíveis com navegadores mais antigos.
+- **📜 JSDoc**: Documentação do código React.
 
 ## 🛠️ Como Executar
 
@@ -45,7 +49,10 @@ Jogo de Adivinhação de Palavras com base na sua definição, desenvolvido em J
     ./mvnw spring-boot:run
     ```
 
-🚪 Disponível em: http://localhost:8080/
+Obs.: Para execução de testes
+    ```
+    mvn test
+    ```
 
 ### Frontend
 
@@ -64,7 +71,10 @@ Jogo de Adivinhação de Palavras com base na sua definição, desenvolvido em J
     npm start
     ```
 
-🚪 Disponível em: http://localhost:8081/
+### 🚪 Portas
+- Backend rodando em: `http://localhost:8080`
+- Frontend rodando em: `http://localhost:3000`
+- Banco de dados PostgreSQL disponível na porta `5432`
 
 ## 📡 Endpoints da API
 
@@ -114,3 +124,40 @@ A documentação completa da API pode ser acessada em `/swagger-ui.html`.
 2. Clique no botão "Excluir" ao lado da palavra.
 3. O backend remove a palavra do banco de dados.
 
+## 🗂️ Estrutura do Projeto
+
+```plaintext
+jogo-adivinhacao-de-palavras/
+├── backend/
+│   ├── src/                # Código fonte do backend
+│   │   ├── main/           # Código principal da aplicação
+│   │   │   ├── java/       # Classes Java
+│   │   │   │   ├── controllers/     # Controladores da API
+│   │   │   │   ├── dtos/            # Objetos de Transferência de Dados
+│   │   │   │   ├── models/          # Modelos de dados
+│   │   │   │   ├── repositories/    # Repositórios de acesso a dados
+│   │   │   │   └── service/         # Lógica de negócio
+│   │   │   └── resources/  # Arquivos de configuração e recursos
+│   │   └── test/           # Testes unitários
+│   ├── docker-compose.yml  # Arquivo de configuração do Docker Compose
+│   ├── mvnw                # Wrapper do Maven para Linux/Mac
+│   ├── mvnw.cmd            # Wrapper do Maven para Windows
+│   └── pom.xml             # Arquivo de configuração do Maven
+|
+├── frontend/
+│   ├── src/                # Código fonte do frontend
+│   │   ├── components/     # Componentes reutilizáveis
+│   │   ├── hooks/          # Hooks personalizados
+│   │   ├── interface/      # Interfaces TypeScript
+│   │   ├── pages/          # Páginas do aplicativo
+│   │   └── style/          # Estilos do aplicativo
+│   ├── index.html          # Ponto de entrada para a aplicação React.
+│   ├── App.tsx             # Componente principal, onde a lógica do aplicativo é inicializada.
+│   ├── package.json        # Arquivo de configuração do npm
+│   ├── package-lock.json   # Dependencias do npm
+│   ├── tsconfig.json       # Arquivo de configuração do typescript
+│   ├── .babellrc           # Arquivo de configuração utilizado pelo Babel
+│   └── webpack.config.js   # Configuração do Webpack
+├── .gitignore              # Arquivos e diretórios devem ser ignorados pelo Git
+└── README.md               # Documentação principal do projeto
+```

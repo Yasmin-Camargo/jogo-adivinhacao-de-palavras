@@ -80,6 +80,9 @@ A API do backend possui os seguintes endpoints principais:
 A documentação completa da API pode ser acessada em `/swagger-ui.html`.
 
 ## 🎮 Fluxo do Jogo
+
+![image](https://github.com/user-attachments/assets/730d9ada-4a15-41cb-9c44-a45c7b542cc9)
+
 1. O jogador inicia o jogo clicando no botão "Sortear nova palavra".
 2. O backend retorna a descrição e o sinônimo da palavra.
 3. O jogador tenta adivinhar a palavra digitando no campo de entrada e clicando no botão "Verificar".
@@ -88,6 +91,8 @@ A documentação completa da API pode ser acessada em `/swagger-ui.html`.
 
 
 ## 📝 Gerenciamento de Palavras
+
+![image](https://github.com/user-attachments/assets/964d48b1-36d2-4981-ba0d-8bbe5bb2152b)
 
 ### 👀 Visualização de Palavras
 1. O jogador acessa a página das palavras clicando na aba "Palavras cadastradas".
@@ -103,3 +108,4 @@ A documentação completa da API pode ser acessada em `/swagger-ui.html`.
 1. Na aba "Palavras cadastradas", localize a palavra que deseja excluir.
 2. Clique no botão "Excluir" ao lado da palavra.
 3. O backend remove a palavra do banco de dados.
+

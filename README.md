@@ -1,6 +1,6 @@
 # 🤔🎮 Jogo de Adivinhação de Palavras 🎮🤔
 
-Desenvolvido em Java com o framework Spring Boot e uma interface frontend em React.
+Jogo de Adivinhação de Palavras com base na sua definição, desenvolvido em Java com o framework Spring Boot e uma interface frontend em React.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -45,6 +45,8 @@ Desenvolvido em Java com o framework Spring Boot e uma interface frontend em Rea
     ./mvnw spring-boot:run
     ```
 
+🚪 Disponível em: http://localhost:8080/
+
 ### Frontend
 
 1. Navegue até o diretório `frontend`:
@@ -61,6 +63,8 @@ Desenvolvido em Java com o framework Spring Boot e uma interface frontend em Rea
     ```sh
     npm start
     ```
+
+🚪 Disponível em: http://localhost:8081/
 
 ## 📡 Endpoints da API
 
@@ -88,6 +92,7 @@ A documentação completa da API pode ser acessada em `/swagger-ui.html`.
 3. O jogador tenta adivinhar a palavra digitando no campo de entrada e clicando no botão "Verificar".
 4. O backend verifica a palavra e retorna uma mensagem indicando se a palavra está correta ou não.
 5. O jogador pode usar uma dica, que conta como uma tentativa.
+6. O jogo termina quando o jogador acerta a palavra ou todas tentativas são utilizadas
 
 
 ## 📝 Gerenciamento de Palavras
